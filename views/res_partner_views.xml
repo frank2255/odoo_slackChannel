@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_partner_form_inherit_dialog" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.dialog</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- 在 notebook 中插入新的 page 來顯示 Slack 訊息 -->
+            <xpath expr="//sheet" position="after">
+                <div class="custom-content">
+                    <h3>Slack Messages</h3>
+                    <p>This section displays messages fetched from Slack:</p>
+                    <!-- 顯示 slack_messages 字段 -->
+                    <field name="slack_messages" readonly="1" widget="text"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
